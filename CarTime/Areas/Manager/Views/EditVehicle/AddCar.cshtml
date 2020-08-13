@@ -1,0 +1,61 @@
+﻿@model CarItem
+
+<div style="display: block; padding: 150px 50px 50px 50px;">
+    <form asp-area="Manager" asp-controller="EditVehicle" asp-action="AddCar" method="post" enctyple="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+        @if (ViewBag.Except == true)
+        {
+            <div>
+                <p>Такая машина уже существует.</p>
+            </div>
+        }
+
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="Title">Модель</lable>
+            <input asp-for="Title" style="width:30%"/>
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="Brand">Бренд</lable>
+            <select asp-for="BrandId">
+                <option value="">Brand</option>
+                @foreach (BrandItem brand in ViewBag.Brands)
+                {
+                    <option value="@brand.Id">@brand.Title</option>
+                }
+            </select>
+            <span asp-validation-for="Brand"></span>
+        </div>
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="SubTitle">Краткое описание</lable>
+            <input asp-for="SubTitle" style="width:30%" />
+            <span asp-validation-for="SubTitle"></span>
+        </div>
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="Text">Полное описание</lable>
+            <input asp-for="Text" type="text" style="width:30%"/>
+            <span asp-validation-for="Text"></span>
+        </div>
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="TitleImagePath">Изображение</lable>
+            <input asp-for="TitleImagePath" type="file" />
+            <div style="width:280px; height: 200px; padding-top:10px">
+                <img src="~/images/brands/@Model.TitleImagePath" width="100%" height="100%"/>
+            </div>
+        </div>
+        <div style="display: block; padding-bottom:10px;">
+            <lable asp-for="Available">Доступен</lable>
+            <input asp-for="Available" type="checkbox" />
+            <span asp-validation-for="Available"></span>
+        </div>
+        <div style="display: block; padding-bottom:20px;">
+            <lable asp-for="Price">Цена</lable>
+            <input asp-for="Price" type="text" style="width:30%"/>
+            <span asp-validation-for="Price"></span>
+        </div>
+        <div style="display:inline-block;">
+            <button type="submit" asp-route-newCar="@false" style="margin-right:10px;">Добавить</button>
+            <button type="submit" asp-route-newCar="@true">Добавить ещё одну</button>
+        </div>
+    </form>
+</div>

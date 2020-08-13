@@ -1,0 +1,58 @@
+﻿@model UserData
+
+@{
+    string title = "Регистрация менеджера";
+    ViewBag.Title = title;
+}
+<article id="main">
+    <div style="display: block; padding-top: 100px">
+        <form asp-area="Admin" asp-controller="Manage" asp-action="Edit" method="post" asp-route-data="@Model" asp-route-id="Id">
+            <input asp-for="Id" type="hidden" />
+            <input asp-for="DateAdded" type="hidden" />
+            
+            @if (ViewBag.Except == true)
+            {
+                <p>Такой логин уже используется</p>
+            }
+
+            <div style="display: block">
+                <lable asp-for="UserName">Логин</lable>
+                <input asp-for="UserName" type="text" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="PasswordHash">Пароль</lable>
+                <input asp-for="PasswordHash" type="text" />
+                <span asp-validation-for="PasswordHash"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="Name">Имя</lable>
+                <input asp-for="Name" type="text" />
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="Surname">Фамилия</lable>
+                <input asp-for="Surname" type="text" />
+                <span asp-validation-for="Surname"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="Patronymic">Отчество</lable>
+                <input asp-for="Patronymic" type="text" />
+                <span asp-validation-for="Patronymic"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="Email">Почта</lable>
+                <input asp-for="Email" type="text" />
+                <span asp-validation-for="Email"></span>
+            </div>
+            <div style="display: block">
+                <lable asp-for="PhoneNumber">Номер телефона</lable>
+                <input asp-for="PhoneNumber" type="text" />
+                <span asp-validation-for="PhoneNumber"></span>
+            </div>
+            <div>
+                <input type="submit" value="Зарегистрировать" />
+            </div>
+        </form>
+    </div>
+</article>

@@ -1,0 +1,28 @@
+﻿@model BrandItem
+
+<div style="display: block; padding-top: 200px">
+    <form asp-area="Manager" asp-controller="EditBrand" asp-action="Edit" method="post">
+        <input type="hidden" asp-for="DateAdding" />
+        @if (ViewBag.Except == true)
+        {
+            <div>
+                <p>Такой бренд уже существует.</p>
+            </div>
+        }
+        
+        <div asp-validation-summary="All"></div>
+        <div style="display: block;">
+            <lable asp-for="Title">Название</lable>
+            <input asp-for="Title" type="text"/>
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="TitleImagePath">Изображение</lable>
+            <input asp-for="TitleImagePath" type="file"/>
+            <div>
+                <img src="~/img/brands/@Model.TitleImagePath" />
+            </div>
+        </div>
+        <input type="submit" value="Изменить" />
+    </form>
+</div>

@@ -1,0 +1,47 @@
+﻿@model CreateOrderViewModel 
+@{
+    ViewBag.Title = "Оформление заказа";
+}
+
+<div style="display: block; padding: 100px 0 0 50px; width:35%">
+    <h3>Оформление заказа</h3>
+    <form asp-area="User" asp-controller="UserOrder" asp-action="Index" method="post">
+        <div style="display: block;">
+            <lable asp-for="Name">Имя</lable>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Surname">Фамилия</lable>
+            <input asp-for="Surname" />
+            <span asp-validation-for="Surname"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Patronymic">Отчество</lable>
+            <input asp-for="Patronymic" />
+            <span asp-validation-for="Patronymic"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="PhoneNumber">Номер телефона</lable>
+            <input asp-for="PhoneNumber" />
+            <span asp-validation-for="PhoneNumber"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Email">Почта</lable>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Address">Адрес</lable>
+            <input asp-for="Address" />
+            <span asp-validation-for="Address"></span>
+        </div>
+        <div style="display:block;">
+            <lable asp-for="Price">Цена</lable>
+            <h3>@Model.Price</h3>
+        </div>
+        <div style="display: block;">
+            <button type="submit">Оплатить</button>
+        </div>
+    </form>
+</div>

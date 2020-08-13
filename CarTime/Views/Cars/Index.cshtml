@@ -1,0 +1,25 @@
+﻿@model List<CarItem>
+@{
+    string strTitle = "Список доступных авто";
+    ViewBag.Title = strTitle;
+}
+
+<div style="padding: 100px 50px 50px 50px;">
+    <h2 align="center" padding-left="20px">@strTitle</h2>
+    @foreach (CarItem car in Model)
+    {
+        <div style="display:inline-block; padding:50px 50px 50px 0">
+            <div style="width:280px; height:200px;">
+                <img src="~/img/cars/@car.TitleImagePath" width="100%" height="100%" />
+            </div>
+            <div>
+                @car.Title<br />
+                @car.SubTitle<br />
+                <h5>@car.Price</h5>
+            </div>
+            <form asp-controller="Cars" asp-action="CarDetails" asp-route-carId="@car.Id">
+                <button type="submit">Просмотреть детали</button>
+            </form>
+        </div>
+    }
+</div>

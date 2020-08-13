@@ -1,0 +1,59 @@
+﻿@model CarItem
+
+<div style="display: block;padding-top: 200px">
+    <form asp-area="Manager" asp-controller="EditVehicle" asp-action="EditCar" method="post">
+        @if (ViewBag.Except == true)
+        {
+            <div>
+                <p>Такая машина уже существует.</p>
+            </div>
+        }
+
+        <div asp-validation-summary="All"></div>
+        <div style="display: block;">
+            <lable asp-for="Title">Модель</lable>
+            <input asp-for="Title"/>
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Brand">Бренд</lable>
+            <select asp-for="BrandId">
+                <option value="">Brand</option>
+                @foreach (BrandItem brand in ViewBag.Brands)
+                {
+                    <option value="@brand.Id">@brand.Title</option>
+                }
+            </select>
+            <span asp-validation-for="Brand"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="SubTitle">Краткое описание</lable>
+            <input asp-for="SubTitle"/>
+            <span asp-validation-for="SubTitle"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Text">Полное описание</lable>
+            <input asp-for="Text" type="text"/>
+            <span asp-validation-for="Text"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="TitleImagePath">Изображение</lable>
+            <input asp-for="TitleImagePath" type="file"/>
+            <div style="display:block">
+                <img src="~/img/cars/@Model.TitleImagePath" widh="200px" height="150px"/>
+            </div>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Available">Доступен</lable>
+            <input asp-for="Available" type="checkbox"/>
+            <span asp-validation-for="Available"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Price">Цена</lable>
+            <input asp-for="Price" type="text"/>
+            <span asp-validation-for="Price"></span>
+        </div>
+        <input type="submit" value="Изменить"/>
+    </form>
+    <a asp-area="Manager" asp-controller="EditMain" asp-action="Index">Перейти в панель менеджера</a>
+</div>

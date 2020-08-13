@@ -1,0 +1,16 @@
+﻿<div style="display:block; padding:150px 0 50px 50px;">
+    <a asp-area="Manager" asp-controller="EditOrder" asp-action="ShowOrders" asp-route-status="created" style="padding-right: 30px;">Новые заказы</a>
+    <a asp-area="Manager" asp-controller="EditOrder" asp-action="ShowOrders" asp-route-status="in_the_process" style="padding-right: 30px;">Обработанные заказы</a>
+    <a asp-area="Manager" asp-controller="EditOrder" asp-action="ShowOrders" asp-route-status="rejected" style="padding-right: 30px;">Отклонённые заказы</a>
+    <a asp-area="Manager" asp-controller="EditOrder" asp-action="ShowOrders" asp-route-status="closed" style="padding-right: 30px;">Завершённые заказы</a>
+</div>
+<div style="        display: block;
+        padding: 0px 0 0 50px;">
+    <a asp-area="Manager" asp-controller="ReturnOrder" asp-action="ShowOrders" asp-route-status="created" style="padding-right: 30px;">Новые заявки на возврат</a>
+    <a asp-area="Manager" asp-controller="ReturnOrder" asp-action="ShowOrders" asp-route-status="in_the_process" style="padding-right: 30px;">Обработанные заявки на возврат</a>
+    <a asp-area="Manager" asp-controller="ReturnOrder" asp-action="ShowOrders" asp-route-status="rejected" style="padding-right: 30px;">Отклонённые заявки на возврат</a>
+    <a asp-area="Manager" asp-controller="ReturnOrder" asp-action="ShowOrders" asp-route-status="closed" >Завершённые заявки на возврат</a>
+</div>
+<div style="display:block; padding:50px 0 50px 50px;">
+    <a asp-area="Manager" asp-controller="EditMain" asp-action="Index">Вернуться в панель менеджера</a>
+</div>

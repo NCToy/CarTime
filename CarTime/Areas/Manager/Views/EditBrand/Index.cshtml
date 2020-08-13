@@ -1,0 +1,21 @@
+﻿@model IQueryable<BrandItem>
+
+<div style="display: block; padding: 110px 30px 50px 50px">
+    @foreach (BrandItem brand in Model)
+    {
+        <div style="display:inline-block; padding: 10px 20px 0 0">
+            <div>
+                <img src="~/img/brands/@brand.TitleImagePath" />
+                <p>@brand.Title</p>
+            </div>
+            <div>
+                <a asp-area="Manager" asp-controller="EditBrand" asp-action="Edit" asp-route-id="@brand.Id">Редактировать</a>
+                |
+                <form id="form-@brand.Id" asp-area="Manager" asp-controller="EditBrand" asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@brand.Id" />
+                    <a href="#" onclick="document.getElementById('form-@brand.Id').submit();">Удалить</a>
+                </form>
+            </div>
+        </div>
+    }
+</div>

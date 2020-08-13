@@ -1,0 +1,28 @@
+﻿@model LoginViewModel
+
+<div style="padding: 150px 0 50px 0; text-align:center;">
+    <h2>Вход в личный кабинет</h2>
+    <div style="display: block;  padding: 0 500px 0 500px;">
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            <div style="display:block; padding-bottom:30px">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div style="display:block; padding-bottom:10px">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div style="display:block; padding-bottom:30px">
+                <label asp-for="RememberMe"></label>
+                <input asp-for="RememberMe" />
+                <span asp-validation-for="RememberMe"></span>
+            </div>
+            <div style="display:block;">
+                <input type="submit" value="Войти" />
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,18 @@
+﻿@model IQueryable<ReturnOrder>
+
+<div style="padding:100px 0 0 50px; display: block;">
+    @foreach(ReturnOrder el in Model)
+    {
+        <div style="display:block; padding:0 0 50px 0;">
+            <p>
+                @el.Name   @el.Surname   @el.Patronymic<br />
+                @el.Phone<br />
+                @el.Reason<br />
+            </p>
+
+            <div style="display:block; padding-top:30px;">
+                <a asp-controller="ReturnOrder" asp-action="OrderDetail" asp-route-id="@el.Id"><button>Просмотреть детали</button></a>
+            </div>
+        </div>
+    }
+</div>

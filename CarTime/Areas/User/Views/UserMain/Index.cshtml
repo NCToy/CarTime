@@ -1,0 +1,20 @@
+﻿<section id="banner">
+
+    <div class="inner">
+        <h4>Добро пожаловть на CarTime</h4>
+        <p>
+            Здесь вы сможете найти машину мечты.
+        </p>
+        <div style="display: inline-block; padding-top:30px;">
+            <form asp-area="User" asp-controller="UserCars" asp-action="Index">
+                <button style="paddng-right:30px;" type="submit">Заказать авто</button>
+            </form>
+        </div>
+        <div style="display: inline-block;">
+            <form asp-area="User" asp-controller="UserReturnCar" asp-action="Index">
+                <button type="submit">Вернуть авто</button>
+            </form>
+        </div>
+    </div>
+
+</section>

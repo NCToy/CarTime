@@ -1,0 +1,26 @@
+﻿@model Order
+
+    <div style="display:block; padding:150px 0 50px 50px;">
+        <p>
+            <b>Ф.И.О.:</b> @Model.Name   @Model.Surname   @Model.Patronymic<br />
+            <br />
+            <b>Номер телефона:</b> @Model.PhoneNumber<br />
+            <br />
+            <b>Почта:</b> @Model.Email<br />
+            <br />
+            <b>Адрес:</b> @Model.Address<br />
+            <br />
+            <b>Стоимость заказа:</b> @Model.Price<br />
+            <b>Статус заказа:</b> @Model.Status
+        </p>
+        <div style="display:inline-block; padding:20px 0 50px 50px;">
+            <form asp-area="Manager" asp-controller="EditOrder" asp-action="Edit" method="post" asp-route-id="@Model.Id">
+                <input type="submit" value="Принять" asp-route-status="in_the_process"/>
+                <input type="submit" value="Отклонить" asp-route-status="rejected"/>
+                <input type="submit" value="Завершить" asp-route-status="closed"/>
+            </form>
+        </div>
+        <div>
+            <a asp-area="Manager" asp-controller="EditOrder" asp-action="Index">Вернуться в панель менеджера</a>
+        </div>
+    </div>

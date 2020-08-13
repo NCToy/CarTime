@@ -1,0 +1,24 @@
+﻿@model List<CarItem>
+
+<div style="display: block; padding-top: 100px">
+    @foreach (CarItem car in Model)
+    {
+        <div>
+            <div style="display:block; width:280px; height:200px;"></div>
+            <img src="~/img/cars/@car.TitleImagePath" width="100%" height="100%"/>
+            <p>@car.Title</p>
+        </div>
+
+        <div>
+            <form asp-area="Manager" asp-controller="EditVehicle" asp-action="EditCar" asp-route-id="@car.Id">
+                <input type="hidden" name="id" value="@car.Id" />
+                <button type="submit">Редактировать</button>
+            </form>
+            |
+            <form asp-area="Manager" asp-controller="EditVehicle" asp-action="Delete" method="post" asp-route-id="@car.Id">
+                <input type="hidden" name="id" value="@car.Id"/>
+                <button type="submit">Удалить</button>
+            </form>
+        </div>
+    }
+</div>

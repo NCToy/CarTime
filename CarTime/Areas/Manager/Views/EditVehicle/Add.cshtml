@@ -1,0 +1,46 @@
+﻿@model CarItem
+
+<div style="display: block;padding-top: 200px">
+    <form asp-area="Admin" asp-controller="EditVehicle" asp-action="Add" method="post" enctyple="multipart/form-data">
+        <input type="hidden" asp-for="Id" />
+
+        <div style="display: block;">
+            <lable asp-for="Title">Модель</lable>
+            <input asp-for="Title" asp-items="" />
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div style="display: block;">
+           <lable asp-for="Brand">Бренд</lable>
+            <input asp-for="Brand" type="text"/>
+            <span asp-validation-for="Brand"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="SubTitle">Краткое описание</lable>
+            <input asp-for="SubTitle" asp-items="" />
+            <span asp-validation-for="SubTitle"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Text">Полное описание</lable>
+            <input asp-for="Text" type="text" />
+            <span asp-validation-for="Text"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="TitleImagePath">Изображение</lable>
+            <input asp-for="TitleImagePath" type="file" />
+            <div>
+                <img src="~/images/brands/@Model.TitleImagePath" />
+            </div>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Available">Доступен</lable>
+            <input asp-for="Available" type="checkbox" />
+            <span asp-validation-for="Available"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Price">Цена</lable>
+            <input asp-for="Price" type="text" />
+            <span asp-validation-for="Price"></span>
+        </div>
+        <input type="submit" value="Добавить" />
+    </form>
+</div>

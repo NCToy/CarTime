@@ -1,0 +1,32 @@
+﻿@model ShopCartViewModel
+
+    <div style="padding: 150px 50px 50px 50px; display: block">
+        @foreach (var cart in Model.shopCart.ListShopItems)
+        {
+            <div style="display:inline-block; padding:0 0 20px 50px;">
+                <div style="width:280px; height:200px;">
+                    <img src="~/img/cars/@cart.CarItem.TitleImagePath" width="100%" height="100%" />
+                </div>
+                <div style="display:block;">
+                    @cart.CarItem.Title
+                    @cart.CarItem.Price
+                </div>
+                <div>
+                    <a asp-area="User" asp-controller="UserShopCart" asp-action="DeleteFromCart" asp-route-shopCartItemId="@cart.Id" method="get">Удалить из корзины</a>
+                </div>
+            </div>
+        }
+    </div>
+    <div style="padding: 0 50px 20px 50px;">
+        @Model.Price
+        <div style="display:inline-block; padding-right:10px;">
+            <form asp-area="User" asp-controller="UserOrder" asp-action="Index">
+                <button type="submit">Оплатить</button>
+            </form>
+        </div>
+        <div style="display:inline-block;">
+            <form asp-area="User" asp-controller="UserCars" asp-action="Index">
+                <button type="submit">К списку авто</button>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,53 @@
+﻿@model ReturnOrder
+
+@{ 
+    ViewBag.Title = "Заявка на возрат";
+}
+
+<div style="display:block; padding:100px 50px 50px 50px; width:30%">
+    <form asp-controller="ReturnCar" asp-action="Index" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div style="display: block;">
+            <lable asp-for="Name">Имя</lable>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Surname">Фамилия</lable>
+            <input asp-for="Surname" />
+            <span asp-validation-for="Surname"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Patronymic">Отчество</lable>
+            <input asp-for="Patronymic" />
+            <span asp-validation-for="Patronymic"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Phone">Номер телефона</lable>
+            <input asp-for="Phone" />
+            <span asp-validation-for="Phone"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Email">Почта</lable>
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="OrderId">Номер заказа (в письме на почте)</lable>
+            <input asp-for="OrderId" />
+            <span asp-validation-for="OrderId"></span>
+        </div>
+        <div style="display: block;">
+            <lable asp-for="Reason">Причина</lable>
+            <input asp-for="Reason" />
+            <span asp-validation-for="Reason"></span>
+        </div>
+        <div style="display: block;">
+            <button type="submit">Подать заявку</button>
+        </div>
+    </form>    
+    <form asp-controller="Main" asp-action="Index">
+        <button type="submit" style="padding-top:30px;">Вернуться</button>
+    </form>
+</div>

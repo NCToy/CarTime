@@ -1,0 +1,18 @@
+﻿<div style="display: block; padding:100px 50px 50px 50px">
+    <div style="display: block; padding-top:50px;">
+        <a asp-area="Manager" asp-controller="EditBrand" asp-action="Add" style="margin-right: 20px;">Добавить бренд</a>
+        <a asp-area="Manager" asp-controller="EditVehicle" asp-action="AddCar" style="margin-right: 20px;">Добавить авто</a>
+    </div>
+    <div style="display: block; padding-top:50px;">
+        <a asp-area="Manager" asp-controller="EditBrand" asp-action="Index" style="margin-right: 20px;">Редактировать бренд</a>
+        <a asp-area="Manager" asp-controller="EditVehicle" asp-action="IndexCar" style="margin-right: 20px;">Редактировать авто</a>
+    </div>
+    <div style="display: block; padding-top:50px;">
+        <a asp-area="Manager" asp-controller="EditOrder" asp-action="Index">Управление заказами</a>
+    </div>
+    <div style="display:block; padding-top:50px;">
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post">
+            <input type="submit" value="Выйти" />
+        </form>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model List<CarItem>
+@{
+    string strTitle = "Список автомобилей";
+    ViewBag.Title = strTitle;
+}
+
+<div style="padding-top: 100px;">
+    <a asp-area="" asp-controller="Cars" asp-action="IndexCar" style="padding-right: 50px;">Арендовать авто</a>
+    <a asp-area="" asp-controller="Cars" asp-action="IndexBike" >Арендовать велосипед</a>
+</div>
+
+<div style="padding-top: 20px;">
+    <h2 align="center" padding-left="20px">@strTitle</h2>
+    <div style="padding-left: 15px; padding-right: 15px;">
+        @if (Model.Any())
+        {
+            @foreach (CarItem car in Model)
+            {
+                <a asp-area="" asp-controller="Order" asp-action="ShowDataCar" asp-route-id="@car.Id" style="display: inline-block">
+                    <img src="~/img/cars/@car.TitleImagePath" width="90%" height="80%" />
+                    <p>
+                        @car.Title<br />
+                        @car.SubTitle<br />
+                        <h5>@car.Price</h5>
+                    </p>
+                </a>
+            }
+        }
+        else
+        {
+            <p>Авто на данное время нет.</p>
+            <a asp-area="" asp-controller="Main" asp-action="Index" ></a>
+        }
+    </div>
+</div>

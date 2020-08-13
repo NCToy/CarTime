@@ -1,0 +1,20 @@
+﻿@model IQueryable<CarItem>
+
+<div style="display: block;">
+    @foreach (CarItem car in Model)
+    {
+        <div>
+            <img src="@car.TitleImagePath"/>
+            <p>@car.Title</p>
+        </div>
+
+        <div>
+            <a asp-area="Admin" asp-controller="EditBrand" asp-action="Edit">Редактировать</a>
+            |
+            <form id="form-@car.Id" asp-area="Admin" asp-controller="EditBrand" asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@car.Id"/>
+                <a href="#" onclick="document.getElementById('form-@car.Id').submit();">Удалить</a>
+            </form>
+        </div>
+    }
+</div>

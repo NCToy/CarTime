@@ -1,0 +1,17 @@
+﻿@model List<UserData>
+
+    <div style="display: block; padding-top: 100px;">
+        <a asp-area="Admin" asp-controller="Manage" asp-action="Register" ><button>Добавить пользователя</button></a>
+        @foreach (UserData user in Model)
+        {
+            <div style="display: block;">
+                <p>
+                    @user.Name @user.Surname @user.Patronymic<br />
+                    @user.PhoneNumber<br />
+                    @user.DateAdded
+                </p>
+            </div>
+            <a asp-area="Admin" asp-controller="Manage" asp-action="Edit" method="post"><button>Редактировать</button></a>
+            <a asp-area="Admin" asp-controller="Manage" asp-action="Delete" method="post"><button>Удалить</button></a>
+        }
+    </div>

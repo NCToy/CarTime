@@ -1,0 +1,18 @@
+﻿@model IQueryable<Order>
+
+<div style="display:block; padding:150px 0 50px 50px;">
+    @foreach (Order order in Model)
+    {
+        <form asp-area="Manager" asp-controller="EditOrder" asp-action="Edit" method="get" asp-route-id="@order.Id">
+            <div style="display: block;">
+                <p>
+                    @order.Name  @order.Surname  @order.Patronymic<br />
+                    @order.Price<br />
+                    @order.DateAdding<br />
+                </p>
+                <input type="submit" value="Просмотреть детали"/>
+            </div>
+        </form>
+
+    }
+</div>

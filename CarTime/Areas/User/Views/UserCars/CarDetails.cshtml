@@ -1,0 +1,23 @@
+﻿@model CarItem
+
+@{
+    ViewBag.Title = "Детали";
+}
+
+    <div style="padding: 150px 50px 50px 50px; display: block;">
+        <div style="display:inline-block;">
+            <div style="width: 280px; height: 200px;">
+                <img src="~/img/cars/@Model.TitleImagePath" width="100%" height="100%" />
+            </div>
+            <div style="display:block;">
+                @Model.Title
+                @Model.Price
+            </div>
+            <div style="display:block;">
+                @Model.Text
+            </div>
+            <form asp-area="User" asp-controller="UserCars" asp-action="ToCart" asp-route-carId="@Model.Id">
+                <button type="submit">Добавить в корзину</button>
+            </form>
+        </div>
+    </div>
