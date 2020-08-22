@@ -8,8 +8,8 @@
   
   Second step: to clone the project and open it in Visual Studio (CarTime.sln).
   
-  Third step: open Packege Manager Console and enter command "update-database".
-  Then Visual Studio will use migrations for creating database and will update it.
+  Third step: open Package Manager Console and enter the command "update-database".
+  Then Visual Studio will use migrations for creating database and updating it.
   
   Fourth step: press Ctrl + F5 to run project.
   
@@ -27,4 +27,5 @@
     login - user01
     password - user01
     
-  Also you can register new user. Press button "SignUp" for it. If you want to add a manager, you must authorized as admin. in Admin panel you can add new manager.
+Also you can register new user. Press button "SignUp" for it. If you want to add a manager, you must authorized as admin. in Admin panel you can add new manager.
+So, you can add or edit any car. You must authorized as manager and added new car. Some photo with cars or brands you can find in wwwroot/img/cars, wwwroot/img/brands.
