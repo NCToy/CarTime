@@ -13,6 +13,7 @@ namespace CarTime.Domain
             Database.EnsureDeleted();
             Database.EnsureCreated();
         }
+
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
         public DbSet<CarItem> CarItems { get; set; }
