@@ -3,6 +3,7 @@
   Project was developed for my portfolio.
   
   What you need to run the project?
+  
   First step: download Visual Studio 2019, MS SQL Server.
   
   Second step: to clone the project and open it in Visual Studio (CarTime.sln).
